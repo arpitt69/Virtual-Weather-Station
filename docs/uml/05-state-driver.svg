@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="716px" preserveAspectRatio="none" style="width:987px;height:716px;" version="1.1" viewBox="0 0 987 716" width="987px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="306" x="343.5" y="11.1387">Virtual Weather Station - Driver life cycle (vws.ko)</text><ellipse cx="397.5" cy="84.3288" fill="#000000" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#F4F7FB" height="50" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="96" x="326.5" y="200.1988"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="326.5" x2="422.5" y1="224.1675" y2="224.1675"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="76" x="336.5" y="216.3374">UNLOADED</text><rect fill="#F4F7FB" height="61.9063" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="227" x="325" y="354.1588"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="325" x2="552" y1="378.1275" y2="378.1275"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="56" x="410.5" y="370.2974">LOADED</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="207" x="330" y="394.2662">device node and attributes exist,</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="148" x="330" y="408.2349">sampling clock stopped</text><rect fill="#F4F7FB" height="50" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="58" x="242.5" y="505.0588"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="242.5" x2="300.5" y1="529.0275" y2="529.0275"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="38" x="252.5" y="521.1974">OPEN</text><rect fill="#F4F7FB" height="61.9063" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="185" x="6" y="644.0588"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="6" x2="191" y1="668.0275" y2="668.0275"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="59" y="660.1974">STREAMING</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="163" x="11" y="684.1662">hrtimer re-arms itself from</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="165" x="11" y="698.1349">vd-&gt;period on every expiry</text><rect fill="#F4F7FB" height="50" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="75" x="256" y="59.3288"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="256" x2="331" y1="83.2975" y2="83.2975"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="55" x="266" y="75.4674">CLOSED</text><path d="M506,47.4088 L506,121.2525 A3,3 0 0 0 509,124.2525 L800,124.2525 A3,3 0 0 0 803,121.2525 L803,54.4088 L793,44.4088 L509,44.4088 A3,3 0 0 0 506,47.4088 " fill="#FFF8DC" style="stroke: #C9A227; stroke-width: 1.0;"/><path d="M793,44.4088 L793,52.9088 A1.5,1.5 0 0 0 794.5,54.4088 L803,54.4088 L793,44.4088 " fill="#FFF8DC" style="stroke: #C9A227; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="246" x="512" y="60.5474">hrtimer_cancel() is called while cfg_lock</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="245" x="512" y="74.5162">is still held. Dropping the lock first let a</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="268" x="512" y="88.4849">concurrent open() start the timer between</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="276" x="512" y="102.4537">the decrement and the cancel, and have its</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="182" x="512" y="116.4224">stream killed off immediately.</text><path d="M458,202.2487 L458,248.155 A3,3 0 0 0 461,251.155 L972,251.155 A3,3 0 0 0 975,248.155 L975,209.2487 L965,199.2487 L709.25,199.2487 L671.94,124.3787 L701.25,199.2487 L461,199.2487 A3,3 0 0 0 458,202.2487 " fill="#FFF8DC" style="stroke: #C9A227; stroke-width: 1.0;"/><path d="M965,199.2487 L965,207.7487 A1.5,1.5 0 0 0 966.5,209.2487 L975,209.2487 L965,199.2487 " fill="#FFF8DC" style="stroke: #C9A227; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="466" x="464" y="215.3874">Configuration through sysfs or ioctl is legal in every state from LOADED on.</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="496" x="464" y="229.3562">Only sampling needs an open file descriptor, which is what makes the sampling</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="226" x="464" y="243.3249">clock stop when nobody is listening.</text><!--MD5=[c826d23312ba5dcd9a6874070a492acc]
+link *start to UNLOADED--><path d="M395.99,94.4388 C392.71,114.2387 384.81,161.9588 379.56,193.6788 " fill="none" id="*start-&gt;UNLOADED" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="378.79,198.2987,384.2267,190.0865,379.6189,193.3679,376.3375,188.7601,378.79,198.2987" style="stroke: #44546A; stroke-width: 1.0;"/><!--MD5=[6f5fce7045805ad9b4bdb0ddeab8f409]
+link UNLOADED to LOADED--><path d="M368.03,250.6988 C363.9,271.2288 361.08,300.8588 371.5,324.1588 C375.67,333.4788 382.08,341.9488 389.32,349.3988 " fill="none" id="UNLOADED-&gt;LOADED" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="392.84,352.8488,389.2118,343.6925,389.2689,349.3491,383.6124,349.4062,392.84,352.8488" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="436.5" y="293.2974">insmod</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="158" x="380" y="307.2662">cdev_add, class_register,</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="173" x="372.5" y="321.2349">device_create, sysfs, procfs</text><!--MD5=[c1e416b07fcb412cfbfbac02b87b1143]
+link LOADED to UNLOADED--><path d="M521.04,353.7688 C532.79,345.9188 543.3,336.1688 550.5,324.1588 C560.32,307.7588 562.1,296.3488 550.5,281.1588 C519.74,240.8888 488.7,266.7988 440.5,251.1588 C436.75,249.9388 432.91,248.6388 429.04,247.2888 " fill="none" id="LOADED-&gt;UNLOADED" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="424.4,245.6388,431.546,252.4163,429.1126,247.3096,434.2193,244.8762,424.4,245.6388" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="43" x="559.55" y="307.2974">rmmod</text><!--MD5=[312d279866e251237da4d63e6b7ba064]
+link LOADED to OPEN--><path d="M403.08,416.4288 C374.03,441.2988 333.2,476.2488 304.75,500.5988 " fill="none" id="LOADED-&gt;OPEN" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="301.09,503.7288,310.5265,500.9087,304.8863,500.4748,305.3201,494.8346,301.09,503.7288" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="403" y="458.1974">first open("/dev/vws")</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="206" x="366" y="472.1662">atomic_inc_return(readers) == 1</text><!--MD5=[8ed8cdb7ce08118ce8cb1bdda700dfb0]
+link OPEN to STREAMING--><path d="M242.2,530.2988 C201.6,531.0288 129.41,539.1888 95.5,585.0588 C84.62,599.7788 84.45,619.9188 87.41,637.3188 " fill="none" id="OPEN-&gt;STREAMING" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="88.34,642.0988,90.5404,632.4988,87.3814,637.1915,82.6888,634.0325,88.34,642.0988" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="131" x="96.5" y="604.1974">hrtimer_start(period)</text><!--MD5=[372a8dc86b8607b8dda60b582b964342]
+link STREAMING to OPEN--><path d="M190.19,643.6188 C205.55,635.6888 220.4,625.9388 232.5,614.0588 C247.3,599.5288 257.14,578.2988 263.23,560.9388 " fill="none" id="STREAMING-&gt;OPEN" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="264.67,556.6588,258.003,563.908,263.0717,561.3964,265.5833,566.4652,264.67,556.6588" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="208" x="253.63" y="597.1974">another process opens or closes</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="110" x="302.63" y="611.1662">(readers still &gt; 0)</text><!--MD5=[864d46efff9f4a41f8c5e89ed9f2b1a5]
+link STREAMING to STREAMING--><path d="M191.33,668.1488 C211.43,668.8188 226,671.1088 226,675.0188 C226,678.4988 214.44,680.6888 197.72,681.5988 " fill="none" id="STREAMING-&gt;STREAMING" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="192.84,681.8188,202.0133,685.4036,197.8348,681.5904,201.6479,677.4119,192.84,681.8188" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="280" y="672.6574">timer tick</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="154" x="232" y="686.6262">convert -&gt; push -&gt; wake</text><!--MD5=[864d46efff9f4a41f8c5e89ed9f2b1a5]
+link STREAMING to STREAMING--><path d="M191.33,662.8188 C279.52,658.0188 392,662.0888 392,675.0188 C392,687.6288 284.94,691.8088 197.83,687.5488 " fill="none" id="STREAMING-&gt;STREAMING-1" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="192.84,687.2888,201.6227,691.7457,197.8334,687.5456,202.0336,683.7563,192.84,687.2888" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="131" x="398" y="679.6574">read() / poll() / ioctl()</text><!--MD5=[36c3c96f37359d8f050453d29d3ed074]
+link STREAMING to CLOSED--><path d="M73.98,643.6888 C54.15,616.0488 29.5,573.2288 29.5,531.0588 C29.5,224.1988 29.5,224.1988 29.5,224.1988 C29.5,125.9787 174.41,97.0688 249.51,88.6888 " fill="none" id="STREAMING-&gt;CLOSED" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="254.17,88.1888,244.7975,85.1627,249.198,88.7174,245.6433,93.1179,254.17,88.1888" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="89" y="375.7474">last close()</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="56" y="389.7162">atomic_dec_and_test,</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="187" x="30.5" y="403.6849">hrtimer_cancel under cfg_lock</text><!--MD5=[6c87cb52e0207e1a506f8d49db876b17]
+link CLOSED to OPEN--><path d="M292.29,109.8188 C288.54,185.3488 277.17,414.6388 273.03,498.1888 " fill="none" id="CLOSED-&gt;OPEN" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="272.79,503.1387,277.2231,494.344,273.0333,498.1447,269.2326,493.9548,272.79,503.1387" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="61" x="284.77" y="307.2974">reopened</text><!--MD5=[85c50fd5762019294e7170d25b27110b]
+link CLOSED to UNLOADED--><path d="M302.29,109.6688 C308.96,126.8787 318.94,150.1888 330.5,169.2487 C335.8,177.9887 342.34,186.8887 348.73,194.8988 " fill="none" id="CLOSED-&gt;UNLOADED" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="351.73,198.5988,349.1591,189.0914,348.577,194.7182,342.9502,194.1361,351.73,198.5988" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="43" x="331.5" y="166.3874">rmmod</text><!--MD5=[551fb6ec2ef228456d0afc7b9a225055]
+link CLOSED to GMN19--><path d="M326.6,59.0287 C343.66,47.5688 365.38,35.2888 387,29.4088 C444.53,13.7587 510.08,26.7387 561.9,43.9887 " fill="none" id="CLOSED-GMN19" style="stroke: #44546A; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[3bbb03674e8dca5414e2ae51685c8c1b]
+@startuml 05-state-driver
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam ArrowColor #44546A
+skinparam NoteBackgroundColor #FFF8DC
+skinparam NoteBorderColor #C9A227
+
+skinparam class {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+  ArrowColor #44546A
+  AttributeFontSize 11
+  StereotypeFontSize 10
+}
+skinparam package {
+  BackgroundColor #EDF1F7
+  BorderColor #8496B0
+  FontStyle bold
+}
+skinparam sequence {
+  ArrowColor #44546A
+  LifeLineBorderColor #8496B0
+  LifeLineBackgroundColor #E3EAF4
+  ParticipantBackgroundColor #F4F7FB
+  ParticipantBorderColor #44546A
+  BoxBackgroundColor #EDF1F7
+  BoxBorderColor #8496B0
+  DividerBackgroundColor #DCE4F0
+}
+skinparam state {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+  FontStyle bold
+}
+skinparam component {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+}
+skinparam database {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+}
+title Virtual Weather Station - Driver life cycle (vws.ko)
+
+[*] - -> UNLOADED
+
+UNLOADED - -> LOADED : insmod\ncdev_add, class_register,\ndevice_create, sysfs, procfs
+LOADED - -> OPEN : first open("/dev/vws")\natomic_inc_return(readers) == 1
+OPEN - -> STREAMING : hrtimer_start(period)
+
+STREAMING - -> STREAMING : timer tick\nconvert -> push -> wake
+STREAMING - -> STREAMING : read() / poll() / ioctl()
+STREAMING - -> OPEN : another process opens or closes\n(readers still > 0)
+
+STREAMING - -> CLOSED : last close()\natomic_dec_and_test,\nhrtimer_cancel under cfg_lock
+CLOSED - -> OPEN : reopened
+CLOSED - -> UNLOADED : rmmod
+LOADED - -> UNLOADED : rmmod
+
+LOADED : device node and attributes exist,\nsampling clock stopped
+STREAMING : hrtimer re-arms itself from\nvd->period on every expiry
+
+note right of CLOSED #FFF8DC
+  hrtimer_cancel() is called while cfg_lock
+  is still held. Dropping the lock first let a
+  concurrent open() start the timer between
+  the decrement and the cancel, and have its
+  stream killed off immediately.
+end note
+
+note bottom
+  Configuration through sysfs or ioctl is legal in every state from LOADED on.
+  Only sampling needs an open file descriptor, which is what makes the sampling
+  clock stop when nobody is listening.
+end note
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 15:52:07 IST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 25.0.4.1+1-1-Debian
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: IN
+--></g></svg>

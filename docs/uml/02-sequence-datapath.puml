@@ -1,0 +1,62 @@
+@startuml 02-sequence-datapath
+!include _style.puml
+title Virtual Weather Station - Steady-state data path (one timer tick to one rendered frame)
+
+box "Kernel space" #FDF0E6
+  participant "hrtimer\n(softirq)" as HRT
+  participant "vws.ko" as MOD
+  database "vws_fifo" as FIFO
+  participant "wait queue" as WQ
+end box
+
+box "vwsd (user space)" #EDF1F7
+  participant "reader\nthread" as RD
+  queue "SampleQueue" as Q
+  participant "fusion\nthread" as FE
+  participant "main\nthread" as UI
+end box
+
+note over RD: blocked in poll(/dev/vws)
+
+HRT -> MOD ++ : vws_timer_fn()
+MOD -> MOD : spin_lock_irqsave(fifo_lock)
+loop each enabled sensor
+  MOD -> MOD : vws_sensor_convert()\nbase model + noise + fault
+  MOD -> MOD : vws_regs_store()\ninto the emulated register map
+  MOD -> FIFO : vws_fifo_push(sample)
+end
+MOD -> MOD : hrtimer_forward_now(period)
+MOD -> MOD : spin_unlock_irqrestore
+MOD -> WQ : wake_up_interruptible(readq)
+deactivate MOD
+
+WQ --> RD : poll() returns POLLIN
+RD -> MOD ++ : read(fd, buf, n * 16)
+MOD -> FIFO : vws_fifo_pop() x n
+return n whole vws_sample records
+
+RD -> RD : Reading::fromSample()\nmilli-units -> doubles
+RD -> Q : pushAll(batch)
+
+Q --> FE : drainFor(50 ms)
+loop each Reading
+  FE -> FE : MedianOutlierFilter::apply()\n(detrended median / MAD)
+  alt accepted
+    FE -> FE : SensorHealthMonitor::onAccepted()
+    FE -> FE : KalmanFilter1D::apply()\nwith this sensor's variance
+  else rejected
+    FE -> FE : SensorHealthMonitor::onRejected(reason)
+  end
+end
+FE -> FE : tick() - staleness, fuse,\nderived metrics
+FE -> FE : publish FusedSnapshot under m_
+
+UI -> FE : snapshot() + sensorViews()
+UI -> MOD : ioctl(VWS_IOC_GET_STATS)
+UI -> UI : Dashboard::render()\nCsvLogger::log()
+
+note over HRT, UI
+  No floating point and no sleeping anywhere left of the syscall boundary:
+  the conversion runs in softirq context on preallocated memory, in integers.
+end note
+@enduml

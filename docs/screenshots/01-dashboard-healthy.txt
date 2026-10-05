@@ -1,0 +1,30 @@
+   Virtual Weather Station  Multi-Sensor Fusion                   20 Hz   day=300s   fusion: kalman-1d        live
+── SENSOR BANK ───────────────────────────────────────────────────────────────────────────────────────────────────────
+  id  name       type               raw          accepted  health       w    sigma  rej% fault
+> 0   temp_a     temperature      9.450 °C          9.450  OK        0.95   0.0886   0.0 -
+  1   temp_b     temperature     10.110 °C         10.110  OK        0.05   0.3730   0.0 -
+  2   humidity   humidity        79.536 %          79.536  OK        1.00   0.4351   0.0 -
+  3   pressure   pressure       1018.42 hPa       1018.42  OK        1.00   0.0743   0.0 -
+  4   wind       wind             6.930 m/s         6.930  OK        1.00   0.6726   0.0 -
+  5   rain       rain             0.000 mm/h        0.000  OK        1.00   0.0010   0.0 -
+  6   light      light                0 lux             0  OK        1.00   0.0010   0.0 -
+
+── FUSED ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    temperature       9.42 +/- 0.035 °C                      DERIVED
+    sources       temp_a+temp_b (2 of 2)                     dew point         6.05 °C
+    humidity         79.54 %RH                               heat index        9.42 °C
+    pressure       1018.42 hPa                               tendency        rising  (+1.009 hPa/sim-h)
+    wind              6.93 m/s                               outlook       clearing / settled
+    rain              0.00 mm/h
+    light                0 lux
+── HISTORY ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+      8.98  ▂▂▂▂▂▃▃▃▃▃▃▄▃▄▃▃▃▃▄▄▄▄▄▄▄▄▄▄▄▄▄▄▅▅▅▅▄▄▄▅▅▅▅▅▅▆▆▆▇▇▇▇▇▇▇▇▇▇▆▆▇▇▇█▇▇▇▇▇▆▇▇▇▇▇█  9.42  fused temp, last 76
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  kernel  ticks 4013  gen 27941  read 6973  dropped 19977  overflow 1  fifo 0  dropouts 150
+  user    queue 0 (dropped 0)  ingested 1967  rejected 0  resyncs 0  log off
+  up/down select  s stuck  d drift  k spike  o dropout  n noise  e enable  c clear  f fusion  l log  +/- rate  q quit
+
+
+
+
+

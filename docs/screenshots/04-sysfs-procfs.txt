@@ -1,0 +1,34 @@
+$ ls /sys/class/vws/vws/
+day_seconds  fifo_depth  power        sensor0  sensor2  sensor4  sensor6    uevent
+dev          n_sensors   sample_rate  sensor1  sensor3  sensor5  subsystem
+
+$ ls /sys/class/vws/vws/sensor0/
+chip_id  enable  fault_mode  fault_param  name  noise_amp  range  registers  type  unit  value
+
+$ cat .../sensor0/{name,chip_id,registers,value}
+temp_a
+0x60
+60 02 01 00 00 23 0a 00
+8970
+
+$ cat /proc/vws/sensors
+id  name       type         enabled   noise fault         param         last
+0   temp_a     temperature  1           150 none              0         8970
+1   temp_b     temperature  1           600 none              0        10320
+2   humidity   humidity     1           800 none              0        77856
+3   pressure   pressure     1           120 none              0      1018680
+4   wind       wind         1          1100 none              0         7794
+5   rain       rain         1             0 none              0            0
+6   light      light        1         60000 none              0            0
+
+
+
+
+
+
+
+
+
+
+
+

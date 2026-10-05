@@ -1,0 +1,38 @@
+@startuml 04-state-health
+!include _style.puml
+title Virtual Weather Station - Sensor health state machine (SensorHealthMonitor)
+
+left to right direction
+
+[*] --> OK
+
+OK         : usable() == true
+SUSPECT    : usable() == true
+RECOVERING : usable() == true\n(on probation)
+FAULTY     : usable() == false\ncontributes to no estimate
+
+OK --> SUSPECT : rejection run >= 3\nor silent >= 6 sample periods\nor > 10% of last 64 rejected
+OK --> FAULTY  : 12 identical readings,\nnot at a range limit  <<stuck>>\nor > 25% of last 64 rejected
+
+SUSPECT --> FAULTY : rejection run >= 8\nor silent >= 20 sample periods\nor > 25% of last 64 rejected
+SUSPECT --> OK     : clean run >= 10
+
+FAULTY     --> RECOVERING : clean run >= 10
+RECOVERING --> OK         : clean run >= 25
+RECOVERING --> FAULTY     : any rejection\nduring probation
+
+legend bottom
+  Only FAULTY is excluded from fusion. SUSPECT means "watch this one": the variance
+  estimate has already cut the weight of a sensor misbehaving enough to matter.
+
+  Every threshold counts an uninterrupted **run**. One accepted reading clears the
+  rejection counter and vice versa, and a transition clears neither, so "clean run >= 25"
+  is the total length needed to confirm a recovery, not a further 25 on top of the 10.
+
+  The rate rule exists because the run rules have a blind spot. A sensor spiking 40% of
+  the time rejects about a third of its samples and is plainly broken, but eight rejections
+  in a row has probability 0.4^8 - about 0.4 occurrences in 600 samples - so it merely
+  oscillated between OK and SUSPECT. The rate rule only escalates; recovery stays with
+  the runs.
+end legend
+@enduml

@@ -1,0 +1,210 @@
+@startuml 01-class
+!include _style.puml
+title Virtual Weather Station - Class Diagram
+
+package "Kernel space (C, vws.ko)" #FDF0E6 {
+  class vws_device <<struct>> {
+    + cdev : struct cdev
+    + sensors : vws_sensor[8]
+    + fifo : vws_fifo
+    + fifo_lock : spinlock_t
+    + cfg_lock : struct mutex
+    + readq : wait_queue_head_t
+    + timer : struct hrtimer
+    + sample_rate_hz : u32
+    + day_seconds : u32
+    --
+    + vws_open() / vws_release()
+    + vws_read() / vws_poll()
+    + vws_ioctl()
+  }
+  class vws_sensor <<struct>> {
+    + id : u8
+    + type : u8
+    + base, amplitude, bias : s32
+    + noise_amp : s32
+    + fault_mode : u8
+    + fault_param : s32
+    + drift_accum : s32
+    + model_state : s32
+    + regs : u8[8]
+    + kobj : struct kobject
+  }
+  class vws_fifo <<struct>> {
+    + buf : vws_sample *
+    + depth, head, tail : u32
+    + overflows, dropped : u64
+    + overflowing : bool
+    --
+    + push()  <i>overwrite oldest</i>
+    + pop()
+  }
+  class vws_sample <<struct, packed>> {
+    + sensor_id : u8
+    + type : u8
+    + flags : u16
+    + value : s32  <i>milli-units</i>
+    + timestamp_ns : u64
+  }
+
+  vws_device "1" *-- "7" vws_sensor
+  vws_device "1" *-- "1" vws_fifo
+  vws_fifo "1" o-- "depth" vws_sample
+}
+
+package "User space (C++17)" #EDF1F7 {
+
+  package "Device access" {
+    class VwsDevice {
+      - fd_ : int
+      + info() : vws_info
+      + sensors() : vector<SensorDescriptor>
+      + stats() : vws_stats
+      + setSampleRate(hz)
+      + injectFault(id, mode, param)
+      + clearFault(id)
+      + waitAndRead(timeout) : vector<vws_sample>
+    }
+    class SensorReader {
+      - thread_ : std::thread
+      - stop_ : atomic<bool>
+      + start()
+      + stop()
+      + samplesRead() : uint64
+      + resyncs() : uint64
+    }
+  }
+
+  package "Containers" {
+    class "RingBuffer<T>" as RingBuffer {
+      - buf_ : vector<T>
+      - head_, size_ : size_t
+      + push(T)
+      + operator[](i) : T
+      + snapshot() : vector<T>
+    }
+    class "SampleQueue<T>" as SampleQueue {
+      - q_ : deque<T>
+      - m_ : mutex
+      - cv_ : condition_variable
+      + push(T)
+      + drainFor(timeout) : vector<T>
+      + close()
+    }
+  }
+
+  package "Processing" {
+    interface IFilter <<interface>> {
+      + {abstract} name() : const char *
+      + {abstract} apply(FilterInput) : FilterResult
+      + {abstract} reset()
+    }
+    class MedianOutlierFilter {
+      - window_ : RingBuffer<double>
+      - rangeMin_, rangeMax_ : double
+      - z_ : double
+      + median() : double
+      + mad() : double
+      + slope() : double
+    }
+    class KalmanFilter1D {
+      - q_, x_, p_ : double
+      + estimate() : double
+      + variance() : double
+      + lastGain() : double
+    }
+    class SensorHealthMonitor {
+      - state_ : Health
+      - rejectRun_, acceptRun_ : unsigned
+      - repeatRun_ : unsigned
+      - recent_ : uint64  <i>shift register</i>
+      + onAccepted(v, t, atLimit)
+      + onRejected(t, reason)
+      + onElapsed(now, period)
+      + state() : Health
+      + usable() : bool
+      + recentRejectRate() : double
+    }
+    class PressureTrend {
+      - w_ : RingBuffer<Point>
+      - dayScale_ : double
+      + add(t, hPa)
+      + slopePerHour() : double
+      + tendency() : Tendency
+    }
+    class FusionEngine {
+      - sensors_ : vector<SensorState>
+      - tempKalman_ : KalmanFilter1D
+      - trend_ : PressureTrend
+      - mode_ : FusionMode
+      - m_ : mutex
+      + ingest(Reading)
+      + tick(nowNs)
+      + snapshot() : FusedSnapshot
+      + sensorViews() : vector<SensorView>
+      + setMode(FusionMode)
+    }
+    class SensorState {
+      + desc : SensorDescriptor
+      + outlier : MedianOutlierFilter
+      + health : SensorHealthMonitor
+      + accepted : RingBuffer<double>
+      + noiseVariance() : double
+    }
+    class FusedSnapshot <<value>> {
+      + temperatureC : double
+      + temperatureSigma : double
+      + tempContributors : unsigned
+      + humidityPct : optional<double>
+      + pressureHpa : optional<double>
+      + dewPointC : optional<double>
+      + tendency : Tendency
+    }
+  }
+
+  package "Presentation" {
+    class Dashboard {
+      - tempHistory_ : RingBuffer<double>
+      - selected_ : int
+      + render(snap, views, stats, rt)
+      + poll() : UiCommand
+    }
+    class CsvLogger {
+      - fused_, sensors_ : ofstream
+      + log(snap, views)
+      + flush()
+    }
+    class Cli <<executable>> {
+      + main(argc, argv)
+    }
+  }
+}
+
+IFilter <|.. MedianOutlierFilter
+IFilter <|.. KalmanFilter1D
+
+MedianOutlierFilter *-- RingBuffer
+SensorState *-- MedianOutlierFilter
+SensorState *-- SensorHealthMonitor
+SensorState *-- RingBuffer
+FusionEngine "1" *-- "n" SensorState
+FusionEngine *-- KalmanFilter1D
+FusionEngine *-- PressureTrend
+FusionEngine ..> FusedSnapshot : <<publishes>>
+
+SensorReader --> VwsDevice : poll() / read()
+SensorReader --> SampleQueue : <<produces>>
+SampleQueue ..> FusionEngine : <<consumed by\nfusion thread>>
+Dashboard ..> FusionEngine : pulls snapshot
+Dashboard ..> VwsDevice : ioctl on keypress
+CsvLogger ..> FusedSnapshot
+Cli ..> VwsDevice
+VwsDevice ..> vws_device : /dev/vws
+
+note bottom of SensorState
+  Holds the stage as MedianOutlierFilter, not IFilter,
+  because the engine also reads median()/mad() for
+  display. The interface exists so another stage can
+  be added without touching FusionEngine::ingest().
+end note
+@enduml

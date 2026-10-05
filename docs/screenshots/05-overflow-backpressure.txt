@@ -1,0 +1,20 @@
+stalling 3.0 s: 7 sensors at 1000 Hz = 7000 samples/s into a 1024-sample ring
+ring spans 0.146 s of data; expect the backlog to be capped at that, not at 3.0 s
+
+overflow_episodes: 5
+samples_dropped:   99885
+samples_generated: 123172
+fifo_used:         1023/1024
+first_sample_age:  0.146 s
+resync_flagged:    1 of 32 samples in the first read
+sampling clock set to 20 Hz
+
+
+
+
+
+
+
+
+
+

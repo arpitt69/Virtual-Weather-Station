@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="908" height="220" viewBox="0 0 908 220" font-family="'DejaVu Sans Mono','JetBrains Mono','Liberation Mono','Courier New',monospace" font-size="12.5">
+<rect width="100%" height="100%" rx="7" fill="#14141b"/>
+<text x="14" y="21" fill="#8b949e" font-size="11.5">Backpressure: a starved reader at 7000 samples/s - the backlog stays capped at the ring's span</text>
+<text x="14.0" y="48.5" fill="#d9dee3" xml:space="preserve">stalling 3.0 s: 7 sensors at 1000 Hz = 7000 samples/s into a 1024-sample ring                                 </text>
+<text x="14.0" y="65.5" fill="#d9dee3" xml:space="preserve">ring spans 0.146 s of data; expect the backlog to be capped at that, not at 3.0 s                             </text>
+<text x="14.0" y="99.5" fill="#d9dee3" xml:space="preserve">overflow_episodes: 5                                                                                          </text>
+<text x="14.0" y="116.5" fill="#d9dee3" xml:space="preserve">samples_dropped:   99885                                                                                      </text>
+<text x="14.0" y="133.5" fill="#d9dee3" xml:space="preserve">samples_generated: 123172                                                                                     </text>
+<text x="14.0" y="150.5" fill="#d9dee3" xml:space="preserve">fifo_used:         1023/1024                                                                                  </text>
+<text x="14.0" y="167.5" fill="#d9dee3" xml:space="preserve">first_sample_age:  0.146 s                                                                                    </text>
+<text x="14.0" y="184.5" fill="#d9dee3" xml:space="preserve">resync_flagged:    1 of 32 samples in the first read                                                          </text>
+<text x="14.0" y="201.5" fill="#d9dee3" xml:space="preserve">sampling clock set to 20 Hz                                                                                   </text>
+</svg>

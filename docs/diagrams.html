@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Virtual Weather Station — diagrams</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; padding: 28px; background: #f6f8fa; color: #1f2328;
+         font: 15px/1.55 -apple-system, "Segoe UI", Roboto, "DejaVu Sans", sans-serif; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.lede { margin: 0 0 26px; color: #57606a; }
+  section { background: #fff; border: 1px solid #d0d7de; border-radius: 8px;
+            padding: 16px 18px; margin-bottom: 20px; }
+  h2 { font-size: 15px; margin: 0 0 2px; }
+  .src { font: 12px ui-monospace, "DejaVu Sans Mono", monospace; color: #57606a; margin: 0 0 12px; }
+  img { width: 100%; height: auto; display: block; }
+  .shots img { border: 1px solid #d0d7de; border-radius: 6px; }
+</style>
+<h1>Virtual Weather Station &mdash; diagrams and screenshots</h1>
+<p class="lede">Rendered from <code>docs/uml/*.puml</code> and captured from the running
+system with <code>tools/termshot.py</code>. Regenerate with <code>make docs</code>.</p>
+
+<section><h2>1. Class diagram</h2>
+<p class="src">uml/01-class.puml</p><img src="uml/01-class.svg" alt="class diagram"></section>
+
+<section><h2>2. Sequence &mdash; steady-state data path</h2>
+<p class="src">uml/02-sequence-datapath.puml</p><img src="uml/02-sequence-datapath.svg" alt="data path sequence"></section>
+
+<section><h2>3. Sequence &mdash; fault injection and fallback</h2>
+<p class="src">uml/03-sequence-fault.puml</p><img src="uml/03-sequence-fault.svg" alt="fault sequence"></section>
+
+<section><h2>4. State machine &mdash; sensor health</h2>
+<p class="src">uml/04-state-health.puml</p><img src="uml/04-state-health.svg" alt="health state machine"></section>
+
+<section><h2>5. State machine &mdash; driver life cycle</h2>
+<p class="src">uml/05-state-driver.puml</p><img src="uml/05-state-driver.svg" alt="driver lifecycle"></section>
+
+<section><h2>6. Component and deployment view</h2>
+<p class="src">uml/06-component.puml</p><img src="uml/06-component.svg" alt="component view"></section>
+
+<section class="shots"><h2>Screenshots</h2>
+<p class="src">docs/screenshots/*.svg</p>
+<img src="screenshots/01-dashboard-healthy.svg" alt="dashboard healthy" style="margin-bottom:14px">
+<img src="screenshots/02-dashboard-fault-fallback.svg" alt="dashboard fault" style="margin-bottom:14px">
+<img src="screenshots/03-vwsctl-sensors.svg" alt="vwsctl sensors" style="margin-bottom:14px">
+<img src="screenshots/04-sysfs-procfs.svg" alt="sysfs and procfs" style="margin-bottom:14px">
+<img src="screenshots/05-overflow-backpressure.svg" alt="overflow" style="margin-bottom:14px">
+<img src="screenshots/06-unit-tests.svg" alt="unit tests">
+</section>

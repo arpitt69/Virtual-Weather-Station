@@ -1,0 +1,45 @@
+' Shared look for every VWS diagram. Included by each .puml file.
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam ArrowColor #44546A
+skinparam NoteBackgroundColor #FFF8DC
+skinparam NoteBorderColor #C9A227
+
+skinparam class {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+  ArrowColor #44546A
+  AttributeFontSize 11
+  StereotypeFontSize 10
+}
+skinparam package {
+  BackgroundColor #EDF1F7
+  BorderColor #8496B0
+  FontStyle bold
+}
+skinparam sequence {
+  ArrowColor #44546A
+  LifeLineBorderColor #8496B0
+  LifeLineBackgroundColor #E3EAF4
+  ParticipantBackgroundColor #F4F7FB
+  ParticipantBorderColor #44546A
+  BoxBackgroundColor #EDF1F7
+  BoxBorderColor #8496B0
+  DividerBackgroundColor #DCE4F0
+}
+skinparam state {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+  FontStyle bold
+}
+skinparam component {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+}
+skinparam database {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+}

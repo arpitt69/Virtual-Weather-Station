@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="972" height="475" viewBox="0 0 972 475" font-family="'DejaVu Sans Mono','JetBrains Mono','Liberation Mono','Courier New',monospace" font-size="12.5">
+<rect width="100%" height="100%" rx="7" fill="#14141b"/>
+<text x="14" y="21" fill="#8b949e" font-size="11.5">vwsd - temp_a's ADC wedged at 6 s: condemned FAULTY, fusion falls back to temp_b</text>
+<rect x="14.0" y="36.0" width="944.0" height="17.0" fill="#39c5cf"/>
+<text x="14.0" y="48.5" fill="#2b2b35" font-weight="bold" xml:space="preserve">   Virtual Weather Station  Multi-Sensor Fusion                   20 Hz   day=300s   fusion: kalman-1d        live    </text>
+<text x="14.0" y="65.5" fill="#539bf5" xml:space="preserve">──</text>
+<text x="30.0" y="65.5" fill="#ffffff" font-weight="bold" xml:space="preserve"> SENSOR BANK </text>
+<text x="134.0" y="65.5" fill="#539bf5" xml:space="preserve">───────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="30.0" y="82.5" fill="#ffffff" font-weight="bold" text-decoration="underline" xml:space="preserve">id  name       type               raw          accepted</text>
+<text x="486.0" y="82.5" fill="#ffffff" font-weight="bold" text-decoration="underline" xml:space="preserve">health  </text>
+<text x="558.0" y="82.5" fill="#ffffff" font-weight="bold" text-decoration="underline" xml:space="preserve">    w    sigma  rej% fault       </text>
+<rect x="14.0" y="87.0" width="8.0" height="17.0" fill="#d9dee3"/>
+<text x="14.0" y="99.5" fill="#14141b" xml:space="preserve">&gt;</text>
+<rect x="30.0" y="87.0" width="328.0" height="17.0" fill="#d9dee3"/>
+<text x="30.0" y="99.5" fill="#14141b" xml:space="preserve">0   temp_a     temperature      9.090 °C </text>
+<rect x="366.0" y="87.0" width="104.0" height="17.0" fill="#d9dee3"/>
+<text x="366.0" y="99.5" fill="#14141b" xml:space="preserve">        9.090</text>
+<rect x="486.0" y="87.0" width="64.0" height="17.0" fill="#e5534b"/>
+<text x="486.0" y="99.5" fill="#14141b" font-weight="bold" xml:space="preserve">FAULTY  </text>
+<rect x="558.0" y="87.0" width="168.0" height="17.0" fill="#d9dee3"/>
+<text x="558.0" y="99.5" fill="#14141b" xml:space="preserve"> 0.00   0.0010   0.0 </text>
+<rect x="726.0" y="87.0" width="56.0" height="17.0" fill="#e5534b"/>
+<text x="726.0" y="99.5" fill="#14141b" xml:space="preserve">stuck:0</text>
+<text x="14.0" y="116.5" fill="#d9dee3" xml:space="preserve">  1   temp_b     temperature      9.750 °C          9.750  </text>
+<text x="486.0" y="116.5" fill="#4cc46a" font-weight="bold" xml:space="preserve">OK      </text>
+<text x="550.0" y="116.5" fill="#d9dee3" xml:space="preserve">  1.00   0.3385   0.0 -                            </text>
+<text x="14.0" y="133.5" fill="#d9dee3" xml:space="preserve">  2   humidity   humidity        77.784 %          77.784  </text>
+<text x="486.0" y="133.5" fill="#4cc46a" font-weight="bold" xml:space="preserve">OK      </text>
+<text x="550.0" y="133.5" fill="#d9dee3" xml:space="preserve">  1.00   0.5176   0.0 -                            </text>
+<text x="14.0" y="150.5" fill="#d9dee3" xml:space="preserve">  3   pressure   pressure       1018.78 hPa       1018.78  </text>
+<text x="486.0" y="150.5" fill="#4cc46a" font-weight="bold" xml:space="preserve">OK      </text>
+<text x="550.0" y="150.5" fill="#d9dee3" xml:space="preserve">  1.00   0.0686   0.0 -                            </text>
+<text x="14.0" y="167.5" fill="#d9dee3" xml:space="preserve">  4   wind       wind             6.534 m/s         6.534  </text>
+<text x="486.0" y="167.5" fill="#4cc46a" font-weight="bold" xml:space="preserve">OK      </text>
+<text x="550.0" y="167.5" fill="#d9dee3" xml:space="preserve">  1.00   0.6857   0.0 -                            </text>
+<text x="14.0" y="184.5" fill="#d9dee3" xml:space="preserve">  5   rain       rain             0.000 mm/h        0.000  </text>
+<text x="486.0" y="184.5" fill="#4cc46a" font-weight="bold" xml:space="preserve">OK      </text>
+<text x="550.0" y="184.5" fill="#d9dee3" xml:space="preserve">  1.00   0.0010   0.0 -                            </text>
+<text x="14.0" y="201.5" fill="#d9dee3" xml:space="preserve">  6   light      light                0 lux             0  </text>
+<text x="486.0" y="201.5" fill="#4cc46a" font-weight="bold" xml:space="preserve">OK      </text>
+<text x="550.0" y="201.5" fill="#d9dee3" xml:space="preserve">  1.00   0.0010   0.0 -                            </text>
+<text x="46.0" y="218.5" fill="#d4a13a" xml:space="preserve">last rejection: stuck: 280 identical readings</text>
+<text x="14.0" y="235.5" fill="#539bf5" xml:space="preserve">──</text>
+<text x="30.0" y="235.5" fill="#ffffff" font-weight="bold" xml:space="preserve"> FUSED </text>
+<text x="86.0" y="235.5" fill="#539bf5" xml:space="preserve">─────────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="46.0" y="252.5" fill="#ffffff" font-weight="bold" xml:space="preserve">temperature      10.09 +/- 0.058 °C</text>
+<text x="502.0" y="252.5" fill="#ffffff" font-weight="bold" xml:space="preserve">DERIVED</text>
+<text x="14.0" y="269.5" fill="#d9dee3" xml:space="preserve">    sources       temp_b (fallback) (1 of 2)                 dew point         6.39 °C                                </text>
+<text x="14.0" y="286.5" fill="#d9dee3" xml:space="preserve">    humidity         77.78 %RH                               heat index       10.09 °C                                </text>
+<text x="14.0" y="303.5" fill="#d9dee3" xml:space="preserve">    pressure       1018.78 hPa                               tendency        rising  (+0.918 hPa/sim-h)               </text>
+<text x="14.0" y="320.5" fill="#d9dee3" xml:space="preserve">    wind              6.53 m/s                               outlook       clearing / settled                         </text>
+<text x="14.0" y="337.5" fill="#d9dee3" xml:space="preserve">    rain              0.00 mm/h                                                                                       </text>
+<text x="14.0" y="354.5" fill="#d9dee3" xml:space="preserve">    light                0 lux                                                                                        </text>
+<text x="14.0" y="371.5" fill="#539bf5" xml:space="preserve">──</text>
+<text x="30.0" y="371.5" fill="#ffffff" font-weight="bold" xml:space="preserve"> HISTORY </text>
+<text x="102.0" y="371.5" fill="#539bf5" xml:space="preserve">───────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="14.0" y="388.5" fill="#d9dee3" xml:space="preserve">      8.97  </text>
+<text x="110.0" y="388.5" fill="#4cc46a" xml:space="preserve">▅▅▅▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇▇▆▆▇▆▇▇▇▇▇▇▇▇▇▇████████████████████████</text>
+<text x="718.0" y="388.5" fill="#d9dee3" xml:space="preserve">  10.09  fused temp, last 76  </text>
+<text x="14.0" y="405.5" fill="#539bf5" xml:space="preserve">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</text>
+<text x="14.0" y="422.5" fill="#d9dee3" xml:space="preserve">  kernel  ticks 4416  gen 30762  read 9794  dropped 19977  overflow 1  fifo 0  dropouts 150                           </text>
+<text x="14.0" y="439.5" fill="#d9dee3" xml:space="preserve">  user    queue 0 (dropped 0)  ingested 2800  rejected 0  resyncs 0  log off                                          </text>
+<text x="30.0" y="456.5" fill="#ffffff" font-weight="bold" xml:space="preserve">up/down select  s stuck  d drift  k spike  o dropout  n noise  e enable  c clear  f fusion  l log  +/- rate  q quit</text>
+</svg>

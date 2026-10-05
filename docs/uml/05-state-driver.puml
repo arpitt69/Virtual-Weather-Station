@@ -1,0 +1,36 @@
+@startuml 05-state-driver
+!include _style.puml
+title Virtual Weather Station - Driver life cycle (vws.ko)
+
+[*] --> UNLOADED
+
+UNLOADED --> LOADED : insmod\ncdev_add, class_register,\ndevice_create, sysfs, procfs
+LOADED --> OPEN : first open("/dev/vws")\natomic_inc_return(readers) == 1
+OPEN --> STREAMING : hrtimer_start(period)
+
+STREAMING --> STREAMING : timer tick\nconvert -> push -> wake
+STREAMING --> STREAMING : read() / poll() / ioctl()
+STREAMING --> OPEN : another process opens or closes\n(readers still > 0)
+
+STREAMING --> CLOSED : last close()\natomic_dec_and_test,\nhrtimer_cancel under cfg_lock
+CLOSED --> OPEN : reopened
+CLOSED --> UNLOADED : rmmod
+LOADED --> UNLOADED : rmmod
+
+LOADED : device node and attributes exist,\nsampling clock stopped
+STREAMING : hrtimer re-arms itself from\nvd->period on every expiry
+
+note right of CLOSED #FFF8DC
+  hrtimer_cancel() is called while cfg_lock
+  is still held. Dropping the lock first let a
+  concurrent open() start the timer between
+  the decrement and the cancel, and have its
+  stream killed off immediately.
+end note
+
+note bottom
+  Configuration through sysfs or ioctl is legal in every state from LOADED on.
+  Only sampling needs an open file descriptor, which is what makes the sampling
+  clock stop when nobody is listening.
+end note
+@enduml

@@ -1,0 +1,24 @@
+device:         /dev/vws
+abi_version:    1
+sensors:        7
+sample_rate:    20 Hz
+fifo_depth:     1024 samples (16384 bytes)
+simulated day:  300 s of wall time
+sample record:  16 bytes
+
+id  name       type         enabled  fault     param         range_lo       range_hi
+0   temp_a     temperature  yes      none      0              -40.000         85.000  °C
+1   temp_b     temperature  yes      none      0              -40.000         85.000  °C
+2   humidity   humidity     yes      none      0                0.000        100.000  %RH
+3   pressure   pressure     yes      none      0              870.000       1085.000  hPa
+4   wind       wind         yes      none      0                0.000         75.000  m/s
+5   rain       rain         yes      none      0                0.000        200.000  mm/h
+6   light      light        yes      none      0                0.000     120000.000  lux
+
+
+
+
+
+
+
+

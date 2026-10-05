@@ -1,0 +1,44 @@
+@startuml 03-sequence-fault
+!include _style.puml
+title Virtual Weather Station - A stuck sensor is injected, detected and worked around
+
+actor User
+participant "vwsctl" as CTL
+participant "vws.ko" as MOD
+participant "FusionEngine" as FE
+participant "Dashboard" as UI
+
+User -> CTL : vwsctl inject temp_a stuck
+CTL -> MOD : ioctl(VWS_IOC_GET_SENSOR) x n\nresolve the name
+CTL -> MOD : ioctl(VWS_IOC_INJECT_FAULT,\n{id=0, mode=STUCK})
+MOD -> MOD : cfg_lock, then fifo_lock;\nset fault_mode
+MOD --> CTL : 0
+
+loop every timer tick from now on
+  MOD -> MOD : temp_a returns last_value,\nflags |= VWS_F_STUCK
+end
+
+FE -> FE : value is in range and on the\nfitted line - accepted
+FE -> FE : onAccepted() sees an identical\nvalue, repeatRun_++
+
+note right of FE #FFF8DC
+  No range or median test can catch this.
+  The value is perfectly plausible every
+  single time - only its repetition is wrong.
+end note
+
+FE -> FE : repeatRun_ >= 12 and not at a\nrange limit -> enter(FAULTY)
+FE -> FE : usable() == false, so temp_a stops\nupdating the Kalman filter
+FE -> FE : fuseTemperature()\ncontributors = { temp_b }
+FE -> FE : tempSources = "temp_b (fallback)"
+UI --> User : temp_a shown FAULTY in red,\nweight 0.00; fused value tracks temp_b
+
+== recovery ==
+
+User -> CTL : vwsctl clear temp_a
+CTL -> MOD : ioctl(VWS_IOC_CLEAR_FAULT, 0)
+FE -> FE : values change again, repeatRun_ = 0
+FE -> FE : clean run >= 10\nFAULTY -> RECOVERING
+FE -> FE : clean run >= 25\nRECOVERING -> OK
+UI --> User : temp_a rejoins the fusion,\nsources = "temp_a+temp_b"
+@enduml

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="434px" preserveAspectRatio="none" style="width:1391px;height:434px;" version="1.1" viewBox="0 0 1391 434" width="1391px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="486" x="455.5" y="11.1387">Virtual Weather Station - Sensor health state machine (SensorHealthMonitor)</text><ellipse cx="16" cy="138.0188" fill="#000000" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#F4F7FB" height="50" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="126" x="87" y="113.0188"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="87" x2="213" y1="136.9875" y2="136.9875"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="20" x="140" y="129.1574">OK</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="106" x="92" y="153.1262">usable() == true</text><rect fill="#F4F7FB" height="50" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="126" x="488.5" y="39.0188"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="488.5" x2="614.5" y1="62.9875" y2="62.9875"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="62" x="520.5" y="55.1574">SUSPECT</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="106" x="493.5" y="79.1262">usable() == true</text><rect fill="#F4F7FB" height="61.9063" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="126" x="1253" y="166.0588"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="1253" x2="1379" y1="190.0275" y2="190.0275"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="87" x="1272.5" y="182.1974">RECOVERING</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="106" x="1258" y="206.1662">usable() == true</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="91" x="1258" y="220.1349">(on probation)</text><rect fill="#F4F7FB" height="61.9063" rx="12.5" ry="12.5" style="stroke: #44546A; stroke-width: 1.5;" width="188" x="898" y="117.0588"/><line style="stroke: #44546A; stroke-width: 1.5;" x1="898" x2="1086" y1="141.0275" y2="141.0275"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="51" x="966.5" y="133.1974">FAULTY</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="110" x="903" y="157.1662">usable() == false</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="168" x="903" y="171.1349">contributes to no estimate</text><!--MD5=[7cd8fe932cae9a94217be2ebfac5c460]
+link *start to OK--><path d="M26.49,138.0188 C38.17,138.0188 59.07,138.0188 80.33,138.0188 " fill="none" id="*start-&gt;OK" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="85.12,138.0188,76.12,134.0188,80.12,138.0188,76.12,142.0188,85.12,138.0188" style="stroke: #44546A; stroke-width: 1.0;"/><!--MD5=[e21c92f3f61f2c5459f5cb233e8596cb]
+link OK to SUSPECT--><path d="M194.64,112.6788 C209.52,105.1288 226.57,97.6387 243,93.0188 C322.84,70.5288 418.47,64.6288 481.65,63.4787 " fill="none" id="OK-&gt;SUSPECT" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="486.53,63.4088,477.4628,59.5636,481.5307,63.4945,477.5999,67.5624,486.53,63.4088" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="116" x="279.5" y="34.4174">rejection run &gt;= 3</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="187" x="244" y="48.3862">or silent &gt;= 6 sample periods</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="177" x="249" y="62.3549">or &gt; 10% of last 64 rejected</text><!--MD5=[9eae48d28f5bf0d971504004f14627ef]
+link SUSPECT to OK--><path d="M500.08,89.4187 C479.47,98.6987 455.09,108.3088 432,114.0188 C360.91,131.5788 276.99,136.8088 219.48,138.1288 " fill="none" id="SUSPECT-&gt;OK" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="214.81,138.2288,223.8882,142.048,219.809,138.1288,223.7282,134.0496,214.81,138.2288" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="103" x="286" y="111.1574">clean run &gt;= 10</text><!--MD5=[9f31f3952421932a82a958efe6b3e259]
+link OK to FAULTY--><path d="M213.33,143.2488 C223.25,143.9388 233.4,144.5588 243,145.0188 C474.99,155.9488 747.9,153.0688 891.33,150.3388 " fill="none" id="OK-&gt;FAULTY" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="896.13,150.2488,887.0518,146.4295,891.131,150.3487,887.2118,154.4279,896.13,150.2488" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="136" x="483.5" y="120.8474">12 identical readings,</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="176" x="463.5" y="134.8162">not at a range limit  «stuck»</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="177" x="463" y="148.7849">or &gt; 25% of last 64 rejected</text><!--MD5=[296e52825cca4547fc1a23e1bb154f4b]
+link SUSPECT to FAULTY--><path d="M614.86,75.9588 C686.95,89.7688 806.55,112.6788 891.52,128.9588 " fill="none" id="SUSPECT-&gt;FAULTY" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="896.35,129.8888,888.2679,124.2602,891.4401,128.944,886.7563,132.1161,896.35,129.8888" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="116" x="711.5" y="57.9774">rejection run &gt;= 8</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="195" x="672" y="71.9462">or silent &gt;= 20 sample periods</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="177" x="681" y="85.9149">or &gt; 25% of last 64 rejected</text><!--MD5=[6c3073852f293f4d834af347cb702fe7]
+link FAULTY to RECOVERING--><path d="M1086.3,150.7888 C1128.38,153.2987 1178.52,158.0487 1223,167.0188 C1230.74,168.5788 1238.75,170.5788 1246.65,172.7987 " fill="none" id="FAULTY-&gt;RECOVERING" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="1251.22,174.1188,1243.6826,167.7794,1246.4162,172.7319,1241.4637,175.4655,1251.22,174.1188" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="103" x="1118" y="150.0574">clean run &gt;= 10</text><!--MD5=[80df436ce800f07f5c24c1242933eeef]
+link RECOVERING to FAULTY--><path d="M1252.89,207.0088 C1213.28,211.4788 1161.1,213.7988 1116,204.0188 C1095.12,199.4888 1073.52,191.0888 1054.37,182.1588 " fill="none" id="RECOVERING-&gt;FAULTY" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="1049.87,180.0188,1056.2943,187.4839,1054.3896,182.1573,1059.7161,180.2526,1049.87,180.0188" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="81" x="1129" y="187.1574">any rejection</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="105" x="1117" y="201.1262">during probation</text><!--MD5=[1ce01db7e73bf7a3d9cf8bb1fe951926]
+link RECOVERING to OK--><path d="M1252.5,214.0288 C1242.7,216.0988 1232.62,217.8788 1223,219.0188 C1175.77,224.5888 1163.53,220.6488 1116,219.0188 C727.31,205.6788 627.75,215.7988 243,159.0188 C235.25,157.8688 227.19,156.4188 219.2,154.8188 " fill="none" id="RECOVERING-&gt;OK" style="stroke: #44546A; stroke-width: 1.0;"/><polygon fill="#44546A" points="214.59,153.8788,222.6084,159.5976,219.489,154.8786,224.2081,151.7592,214.59,153.8788" style="stroke: #44546A; stroke-width: 1.0;"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="103" x="718" y="202.1474">clean run &gt;= 25</text><rect fill="#DDDDDD" height="177.625" rx="5" ry="5" style="stroke: #000000; stroke-width: 1.0;" width="553" x="421.5" y="245.9688"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="524" x="427.5" y="262.1074">Only FAULTY is excluded from fusion. SUSPECT means "watch this one": the variance</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="502" x="427.5" y="276.0762">estimate has already cut the weight of a sensor misbehaving enough to matter.</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="431.5" y="290.0449"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="255" x="427.5" y="304.0137">Every threshold counts an uninterrupted</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="24" x="686.5" y="304.0137">run</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="215" x="710.5" y="304.0137">. One accepted reading clears the</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="541" x="427.5" y="317.9824">rejection counter and vice versa, and a transition clears neither, so "clean run &gt;= 25"</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="518" x="427.5" y="331.9512">is the total length needed to confirm a recovery, not a further 25 on top of the 10.</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="0" x="431.5" y="345.9199"/><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="534" x="427.5" y="359.8887">The rate rule exists because the run rules have a blind spot. A sensor spiking 40% of</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="540" x="427.5" y="373.8574">the time rejects about a third of its samples and is plainly broken, but eight rejections</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="525" x="427.5" y="387.8262">in a row has probability 0.4^8 - about 0.4 occurrences in 600 samples - so it merely</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="536" x="427.5" y="401.7949">oscillated between OK and SUSPECT. The rate rule only escalates; recovery stays with</text><text fill="#000000" font-family="DejaVu Sans" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="427.5" y="415.7637">the runs.</text><!--MD5=[3c0643cd8580055f39f7e0b15c117460]
+@startuml 04-state-health
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam ArrowColor #44546A
+skinparam NoteBackgroundColor #FFF8DC
+skinparam NoteBorderColor #C9A227
+
+skinparam class {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+  ArrowColor #44546A
+  AttributeFontSize 11
+  StereotypeFontSize 10
+}
+skinparam package {
+  BackgroundColor #EDF1F7
+  BorderColor #8496B0
+  FontStyle bold
+}
+skinparam sequence {
+  ArrowColor #44546A
+  LifeLineBorderColor #8496B0
+  LifeLineBackgroundColor #E3EAF4
+  ParticipantBackgroundColor #F4F7FB
+  ParticipantBorderColor #44546A
+  BoxBackgroundColor #EDF1F7
+  BoxBorderColor #8496B0
+  DividerBackgroundColor #DCE4F0
+}
+skinparam state {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+  FontStyle bold
+}
+skinparam component {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+}
+skinparam database {
+  BackgroundColor #F4F7FB
+  BorderColor #44546A
+}
+title Virtual Weather Station - Sensor health state machine (SensorHealthMonitor)
+
+left to right direction
+
+[*] - -> OK
+
+OK         : usable() == true
+SUSPECT    : usable() == true
+RECOVERING : usable() == true\n(on probation)
+FAULTY     : usable() == false\ncontributes to no estimate
+
+OK - -> SUSPECT : rejection run >= 3\nor silent >= 6 sample periods\nor > 10% of last 64 rejected
+OK - -> FAULTY  : 12 identical readings,\nnot at a range limit  <<stuck>>\nor > 25% of last 64 rejected
+
+SUSPECT - -> FAULTY : rejection run >= 8\nor silent >= 20 sample periods\nor > 25% of last 64 rejected
+SUSPECT - -> OK     : clean run >= 10
+
+FAULTY     - -> RECOVERING : clean run >= 10
+RECOVERING - -> OK         : clean run >= 25
+RECOVERING - -> FAULTY     : any rejection\nduring probation
+
+legend bottom
+  Only FAULTY is excluded from fusion. SUSPECT means "watch this one": the variance
+  estimate has already cut the weight of a sensor misbehaving enough to matter.
+
+  Every threshold counts an uninterrupted **run**. One accepted reading clears the
+  rejection counter and vice versa, and a transition clears neither, so "clean run >= 25"
+  is the total length needed to confirm a recovery, not a further 25 on top of the 10.
+
+  The rate rule exists because the run rules have a blind spot. A sensor spiking 40% of
+  the time rejects about a third of its samples and is plainly broken, but eight rejections
+  in a row has probability 0.4^8 - about 0.4 occurrences in 600 samples - so it merely
+  oscillated between OK and SUSPECT. The rate rule only escalates; recovery stays with
+  the runs.
+end legend
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 15:52:07 IST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 25.0.4.1+1-1-Debian
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: IN
+--></g></svg>

@@ -1,0 +1,40 @@
+  PASS  no slope before there is a baseline
+  PASS  least-squares slope, hPa per simulated hour (-0.3350)
+  PASS  classified as falling
+  PASS  flat pressure is steady
+
+FusionEngine
+  PASS  publishes a valid snapshot
+  PASS  both temperature units contribute while healthy
+  PASS  names its sources
+  PASS  inverse-variance fused temperature (19.9914)
+  PASS  single-sensor channels pass through
+  PASS  derived metrics present
+  PASS  the quieter unit carries more weight (0.982614 vs 0.017386)
+  PASS  temperature weights sum to 1 (1.0000)
+  PASS  the noise estimate ranks the two units correctly
+  PASS  a biased noisy unit is pulled toward the quiet one, not the midpoint
+  PASS  Kalman fused temperature (19.9881)
+  PASS  Kalman reports a tighter sigma than either sensor
+  PASS  the wedged unit goes FAULTY
+  PASS  only the survivor contributes
+  PASS  the snapshot says it is on fallback
+  PASS  the fused value follows the survivor, not the wedged unit
+  PASS  a FAULTY sensor carries no weight (0.0000)
+  PASS  a sensor pinned at a range limit is not called stuck
+  PASS  no usable temperature sensor
+  PASS  says so explicitly
+  PASS  derived metrics are withheld without a temperature
+  PASS  a silent sensor is caught by staleness
+  PASS  its channel is withheld from the snapshot
+  PASS  the other channels are unaffected
+  PASS  spikes are still caught at 40% contamination from a cold start (rejected 197/600)
+  PASS  a sensor spiking 40% of the time is condemned
+  PASS  mode is readable
+  PASS  mode can be switched at runtime
+  PASS  a sensor disabled out-of-band stops contributing
+  PASS  fault state picked up from the descriptor
+  PASS  a reading from an unknown sensor id is ignored
+
+92 passed, 0 failed
+

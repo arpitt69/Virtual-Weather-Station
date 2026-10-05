@@ -1,0 +1,49 @@
+@startuml 06-component
+!include _style.puml
+title Virtual Weather Station - Component and deployment view
+
+package "User space (C++17)" #EDF1F7 {
+  component "vwsctl\nioctl client" as CLI
+  package "vwsd" {
+    component "main thread\nDashboard + CsvLogger" as MT
+    component "fusion thread\nFusionEngine" as FT
+    component "reader thread\nSensorReader" as RT
+    queue "SampleQueue<Reading>" as SQ
+  }
+  component "vwstest\noffline suite" as TEST
+}
+
+package "Kernel space (C, vws.ko)" #FDF0E6 {
+  component "hrtimer\nsampling clock" as TMR
+  component "sensor bank\n7 emulated chips\n+ register maps" as BANK
+  database "vws_fifo\noverwrite ring" as RING
+  component "wait queue" as WQ
+  component "sysfs\n/sys/class/vws" as SYSFS
+  component "procfs\n/proc/vws" as PROCFS
+}
+
+TMR --> BANK : tick
+BANK --> RING : push (integer, softirq)
+RING --> WQ : wake_up_interruptible
+BANK -- SYSFS
+BANK -- PROCFS
+
+RT --> WQ : poll() / read()\n/dev/vws
+RT --> SQ : push
+SQ --> FT : drain
+FT --> MT : FusedSnapshot
+MT --> BANK : ioctl()
+CLI --> BANK : ioctl()
+CLI ..> SYSFS : read / write
+CLI ..> PROCFS : read
+
+TEST ..> FT : drives the engine with\nsynthesised readings\n(no device needed)
+
+note right of RING #FFF8DC
+  Overwrites the oldest unread sample
+  when full, so the ring always holds the
+  most recent `depth` samples and a
+  starved reader is back at real time on
+  its next read().
+end note
+@enduml

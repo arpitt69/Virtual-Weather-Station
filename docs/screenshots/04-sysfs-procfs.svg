@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="908" height="424" viewBox="0 0 908 424" font-family="'DejaVu Sans Mono','JetBrains Mono','Liberation Mono','Courier New',monospace" font-size="12.5">
+<rect width="100%" height="100%" rx="7" fill="#14141b"/>
+<text x="14" y="21" fill="#8b949e" font-size="11.5">sysfs as the hardware configuration interface, plus /proc/vws statistics</text>
+<text x="14.0" y="48.5" fill="#d9dee3" xml:space="preserve">$ ls /sys/class/vws/vws/                                                                                      </text>
+<text x="14.0" y="65.5" fill="#d9dee3" xml:space="preserve">day_seconds  fifo_depth  power        sensor0  sensor2  sensor4  sensor6    uevent                            </text>
+<text x="14.0" y="82.5" fill="#d9dee3" xml:space="preserve">dev          n_sensors   sample_rate  sensor1  sensor3  sensor5  subsystem                                    </text>
+<text x="14.0" y="116.5" fill="#d9dee3" xml:space="preserve">$ ls /sys/class/vws/vws/sensor0/                                                                              </text>
+<text x="14.0" y="133.5" fill="#d9dee3" xml:space="preserve">chip_id  enable  fault_mode  fault_param  name  noise_amp  range  registers  type  unit  value                </text>
+<text x="14.0" y="167.5" fill="#d9dee3" xml:space="preserve">$ cat .../sensor0/{name,chip_id,registers,value}                                                              </text>
+<text x="14.0" y="184.5" fill="#d9dee3" xml:space="preserve">temp_a                                                                                                        </text>
+<text x="14.0" y="201.5" fill="#d9dee3" xml:space="preserve">0x60                                                                                                          </text>
+<text x="14.0" y="218.5" fill="#d9dee3" xml:space="preserve">60 02 01 00 00 23 0a 00                                                                                       </text>
+<text x="14.0" y="235.5" fill="#d9dee3" xml:space="preserve">8970                                                                                                          </text>
+<text x="14.0" y="269.5" fill="#d9dee3" xml:space="preserve">$ cat /proc/vws/sensors                                                                                       </text>
+<text x="14.0" y="286.5" fill="#d9dee3" xml:space="preserve">id  name       type         enabled   noise fault         param         last                                  </text>
+<text x="14.0" y="303.5" fill="#d9dee3" xml:space="preserve">0   temp_a     temperature  1           150 none              0         8970                                  </text>
+<text x="14.0" y="320.5" fill="#d9dee3" xml:space="preserve">1   temp_b     temperature  1           600 none              0        10320                                  </text>
+<text x="14.0" y="337.5" fill="#d9dee3" xml:space="preserve">2   humidity   humidity     1           800 none              0        77856                                  </text>
+<text x="14.0" y="354.5" fill="#d9dee3" xml:space="preserve">3   pressure   pressure     1           120 none              0      1018680                                  </text>
+<text x="14.0" y="371.5" fill="#d9dee3" xml:space="preserve">4   wind       wind         1          1100 none              0         7794                                  </text>
+<text x="14.0" y="388.5" fill="#d9dee3" xml:space="preserve">5   rain       rain         1             0 none              0            0                                  </text>
+<text x="14.0" y="405.5" fill="#d9dee3" xml:space="preserve">6   light      light        1         60000 none              0            0                                  </text>
+</svg>

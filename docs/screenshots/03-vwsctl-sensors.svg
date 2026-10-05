@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="908" height="322" viewBox="0 0 908 322" font-family="'DejaVu Sans Mono','JetBrains Mono','Liberation Mono','Courier New',monospace" font-size="12.5">
+<rect width="100%" height="100%" rx="7" fill="#14141b"/>
+<text x="14" y="21" fill="#8b949e" font-size="11.5">vwsctl - driver info and the emulated sensor bank, over ioctl</text>
+<text x="14.0" y="48.5" fill="#d9dee3" xml:space="preserve">device:         /dev/vws                                                                                      </text>
+<text x="14.0" y="65.5" fill="#d9dee3" xml:space="preserve">abi_version:    1                                                                                             </text>
+<text x="14.0" y="82.5" fill="#d9dee3" xml:space="preserve">sensors:        7                                                                                             </text>
+<text x="14.0" y="99.5" fill="#d9dee3" xml:space="preserve">sample_rate:    20 Hz                                                                                         </text>
+<text x="14.0" y="116.5" fill="#d9dee3" xml:space="preserve">fifo_depth:     1024 samples (16384 bytes)                                                                    </text>
+<text x="14.0" y="133.5" fill="#d9dee3" xml:space="preserve">simulated day:  300 s of wall time                                                                            </text>
+<text x="14.0" y="150.5" fill="#d9dee3" xml:space="preserve">sample record:  16 bytes                                                                                      </text>
+<text x="14.0" y="184.5" fill="#d9dee3" xml:space="preserve">id  name       type         enabled  fault     param         range_lo       range_hi                          </text>
+<text x="14.0" y="201.5" fill="#d9dee3" xml:space="preserve">0   temp_a     temperature  yes      none      0              -40.000         85.000  °C                      </text>
+<text x="14.0" y="218.5" fill="#d9dee3" xml:space="preserve">1   temp_b     temperature  yes      none      0              -40.000         85.000  °C                      </text>
+<text x="14.0" y="235.5" fill="#d9dee3" xml:space="preserve">2   humidity   humidity     yes      none      0                0.000        100.000  %RH                     </text>
+<text x="14.0" y="252.5" fill="#d9dee3" xml:space="preserve">3   pressure   pressure     yes      none      0              870.000       1085.000  hPa                     </text>
+<text x="14.0" y="269.5" fill="#d9dee3" xml:space="preserve">4   wind       wind         yes      none      0                0.000         75.000  m/s                     </text>
+<text x="14.0" y="286.5" fill="#d9dee3" xml:space="preserve">5   rain       rain         yes      none      0                0.000        200.000  mm/h                    </text>
+<text x="14.0" y="303.5" fill="#d9dee3" xml:space="preserve">6   light      light        yes      none      0                0.000     120000.000  lux                     </text>
+</svg>

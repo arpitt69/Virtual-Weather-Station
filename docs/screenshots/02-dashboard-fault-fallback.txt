@@ -1,0 +1,30 @@
+   Virtual Weather Station  Multi-Sensor Fusion                   20 Hz   day=300s   fusion: kalman-1d        live
+── SENSOR BANK ───────────────────────────────────────────────────────────────────────────────────────────────────────
+  id  name       type               raw          accepted  health       w    sigma  rej% fault
+> 0   temp_a     temperature      9.090 °C          9.090  FAULTY    0.00   0.0010   0.0 stuck:0
+  1   temp_b     temperature      9.750 °C          9.750  OK        1.00   0.3385   0.0 -
+  2   humidity   humidity        77.784 %          77.784  OK        1.00   0.5176   0.0 -
+  3   pressure   pressure       1018.78 hPa       1018.78  OK        1.00   0.0686   0.0 -
+  4   wind       wind             6.534 m/s         6.534  OK        1.00   0.6857   0.0 -
+  5   rain       rain             0.000 mm/h        0.000  OK        1.00   0.0010   0.0 -
+  6   light      light                0 lux             0  OK        1.00   0.0010   0.0 -
+    last rejection: stuck: 280 identical readings
+── FUSED ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    temperature      10.09 +/- 0.058 °C                      DERIVED
+    sources       temp_b (fallback) (1 of 2)                 dew point         6.39 °C
+    humidity         77.78 %RH                               heat index       10.09 °C
+    pressure       1018.78 hPa                               tendency        rising  (+0.918 hPa/sim-h)
+    wind              6.53 m/s                               outlook       clearing / settled
+    rain              0.00 mm/h
+    light                0 lux
+── HISTORY ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+      8.97  ▅▅▅▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇▇▆▆▇▆▇▇▇▇▇▇▇▇▇▇████████████████████████  10.09  fused temp, last 76
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  kernel  ticks 4416  gen 30762  read 9794  dropped 19977  overflow 1  fifo 0  dropouts 150
+  user    queue 0 (dropped 0)  ingested 2800  rejected 0  resyncs 0  log off
+  up/down select  s stuck  d drift  k spike  o dropout  n noise  e enable  c clear  f fusion  l log  +/- rate  q quit
+
+
+
+
+
